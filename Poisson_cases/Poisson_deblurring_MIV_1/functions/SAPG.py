@@ -1,3 +1,22 @@
+'''
+This code estimates the regularization parameter theta for the experiments
+in [1]. We estimate theta by maximising the marginal likelihood p(y|theta) by adapting
+the code presented in [2] (we make use of the introduced Reflected SDEs and respective
+discretization in [1] instead of the usual Langevin SDEs).
+
+The original code can be found in https://github.com/anafvidal/research-code.
+
+[1] Savvas Melidonis, Paul Dobson, Yoann Altmann, Marcelo Pereyra, Konstantinos C. Zygalakis
+Efficient Bayesian Computation for low-photon imaging problems.
+arXiv preprint https://arxiv.org/abs/2206.05350, June 2022
+
+[2] A. F. Vidal, V. De Bortoli, M. Pereyra, and A. Durmus (2020). 
+Maximum Likelihood Estimation of Regularization Parameters in High-Dimensional Inverse Problems: 
+An Empirical Bayesian Approach Part I: Methodology and Experiments. 
+SIAM Journal on Imaging Sciences, 13(4), 1945-1989.
+
+'''
+
 import numpy as np
 import torch
 import timeit
