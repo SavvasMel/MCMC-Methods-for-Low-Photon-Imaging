@@ -272,7 +272,7 @@ savemat(path + "/Poisson_deblur_MIV_1_RMYMALA_MC_chain.mat", RMYMALA_MC_chain)
 img_type = "png"
 plots(im,y,post_meanvar, NRMSE_trace_sr, logPiTrace_sr, min_values_trace, path, img_type, alpha_trace)
 method_str = "RMYMALA"
-ac_var_plots(RMYMALA_trace.cpu().numpy(), method_str, path, img_type)
+ac_var_plots(RMYMALA_trace.cpu().numpy(), lags, method_str, path, img_type)
 
 if verbose_lr == 1:
     print(' ')

@@ -238,4 +238,4 @@ savemat(path + "/Poisson_deblur_MIV_1_RMYULA_MC_chain.mat", RMYULA_MC_chain)
 img_type = "png"
 plots(im,y,post_meanvar, NRMSE_trace, logPiTrace, min_values_trace, path, img_type)
 method_str = "RMYULA"
-ac_var_plots(RMYULA_trace.cpu().numpy(), method_str, path, img_type)
+ac_var_plots(RMYULA_trace.cpu().numpy(), lags, method_str, path, img_type)
