@@ -277,7 +277,8 @@ savemat(path + "/geo_inpainting_MIV_0.01_RMYMALA_MC_chain.mat", RMYMALA_MC_chain
 img_type = "png"
 plots(im, MaT_f, t,post_meanvar, NRMSE_trace_sr, logPiTrace_sr, min_values_trace, path, img_type)
 method_str = "RMYMALA"
-ac_var_plots(RMYMALA_trace.cpu().numpy(), method_str, path, img_type)
+lags = 100
+ac_var_plots(RMYMALA_trace.cpu().numpy(), lags, method_str, path, img_type)
 
 if verbose_lr == 1:
     print(' ')

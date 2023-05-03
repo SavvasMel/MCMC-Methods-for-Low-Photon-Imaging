@@ -19,7 +19,7 @@ import statsmodels.api as sm
 
 #%% 
 
-def ac_var_plots(MC_chain, method_str, path, img_type):
+def ac_var_plots(MC_chain, lags, method_str, path, img_type):
 
     # Load the data:
     #   chain_location_str : location of the chain data. This should be a mat file.
@@ -32,6 +32,9 @@ def ac_var_plots(MC_chain, method_str, path, img_type):
     nx = MC_chain.shape[1]
     ny = MC_chain.shape[2]
 
+    if  MC_chain.shape[0]<lags:
+        raise ValueError('ACF lags should be larger than the number of saved samples')
+    
     # Put the different scales that we are going to use later in a list. So, let' say
     # your image is 256x256. For scale = 1, you want to downscale your samples (which
     # have dimension 256x256) by 2*scale (i.e. your samples will have dimension 128x128). 

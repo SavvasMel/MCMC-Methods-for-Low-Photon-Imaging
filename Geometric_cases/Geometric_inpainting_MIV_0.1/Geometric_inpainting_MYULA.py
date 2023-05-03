@@ -233,4 +233,5 @@ savemat(path + "/geo_inpainting_MIV_0.1_RMYULA_MC_chain.mat", RMYULA_MC_chain)
 img_type = "png"
 plots(im, MaT_f, t, post_meanvar, NRMSE_trace, logPiTrace, min_values_trace, path, img_type)
 method_str = "RMYULA"
-ac_var_plots(RMYULA_trace.cpu().numpy(), method_str, path, img_type)
+lags = 100
+ac_var_plots(RMYULA_trace.cpu().numpy(), lags, method_str, path, img_type)

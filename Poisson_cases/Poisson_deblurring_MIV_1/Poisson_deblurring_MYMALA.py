@@ -14,8 +14,8 @@ Marcelo Pereyra, Konstantinos C. Zygalakis, arXiv https://arxiv.org/abs/2206.053
 import numpy as np
 import torch
 import math
-from methods.MYULA_MALA import MYMALA_refl
-from methods.MYULA import MYULA_refl
+from methods.RMYMALA import MYMALA_refl
+from methods.RMYULA import MYULA_refl
 from scipy.io import savemat
 
 from functions.norml12 import tv
@@ -272,6 +272,7 @@ savemat(path + "/Poisson_deblur_MIV_1_RMYMALA_MC_chain.mat", RMYMALA_MC_chain)
 img_type = "png"
 plots(im,y,post_meanvar, NRMSE_trace_sr, logPiTrace_sr, min_values_trace, path, img_type, alpha_trace)
 method_str = "RMYMALA"
+lags = 100
 ac_var_plots(RMYMALA_trace.cpu().numpy(), lags, method_str, path, img_type)
 
 if verbose_lr == 1:

@@ -234,4 +234,5 @@ savemat(path + "/bin_denoising_MIV_0.1_t100_RSKROCK_MC_chain.mat", RSKROCK_MC_ch
 img_type = "png"
 plots(im,y,post_meanvar, NRMSE_trace, logPiTrace, min_values_trace, path, img_type)
 method_str = "RSKROCK"
-ac_var_plots(RSKROCK_trace.cpu().numpy(), method_str, path, img_type)
+lags = 100
+ac_var_plots(RSKROCK_trace.cpu().numpy(), lags, method_str, path, img_type)
