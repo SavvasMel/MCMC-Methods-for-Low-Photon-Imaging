@@ -180,10 +180,10 @@ for i_x in tqdm(range(1,int(nSamples_burnin+nSamples))):
     NRMSE_trace = np.append(NRMSE_trace, NRMSE(post_meanvar_burnin.get_mean().cpu().numpy()))
 
     # save PSNR
-    PSNR_trace_sr = np.append(PSNR_trace, PSNR(post_meanvar_burnin.get_mean().cpu().numpy()))
+    PSNR_trace = np.append(PSNR_trace, PSNR(post_meanvar_burnin.get_mean().cpu().numpy()))
 
     # save SSIM
-    SSIM_trace_sr = np.append(SSIM_trace, SSIM(post_meanvar_burnin.get_mean().cpu().numpy()))
+    SSIM_trace = np.append(SSIM_trace, SSIM(post_meanvar_burnin.get_mean().cpu().numpy()))
 
     # save minimum value of sample X before reflection
     min_values_trace = np.append(min_values_trace, min_value.cpu().numpy())
