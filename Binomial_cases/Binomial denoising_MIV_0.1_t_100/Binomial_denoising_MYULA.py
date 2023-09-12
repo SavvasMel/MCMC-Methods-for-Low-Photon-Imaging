@@ -162,6 +162,9 @@ for i_x in tqdm(range(1,int(nSamples_burnin+nSamples))):
     
     X, min_value = RMYULA(X,L_Phi,grad_Phi,device)
 
+    # Update statistics
+    post_meanvar_burnin.update(X)
+
     # save log posterior trace of the new sample
     logPiTrace = np.append(logPiTrace,logPi(X).cpu().numpy())
 

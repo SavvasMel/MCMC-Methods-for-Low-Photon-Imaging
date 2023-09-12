@@ -159,6 +159,9 @@ for i_x in tqdm(range(1,int(nSamples_burnin+nSamples))):
     
     X, min_value = RMYULA(X,L_Phi,grad_Phi,device)
 
+    # Update statistics
+    post_meanvar_burnin.update(X)
+
     # save log posterior trace of the new sample
     logPiTrace = np.append(logPiTrace,logPi(X).cpu().numpy())
 
@@ -166,7 +169,7 @@ for i_x in tqdm(range(1,int(nSamples_burnin+nSamples))):
     NRMSE_trace = np.append(NRMSE_trace, NRMSE(post_meanvar_burnin.get_mean().cpu().numpy()))
 
     # save PSNR
-    PSNR_trace_ = np.append(PSNR_trace, PSNR(post_meanvar_burnin.get_mean().cpu().numpy()))
+    PSNR_trace = np.append(PSNR_trace, PSNR(post_meanvar_burnin.get_mean().cpu().numpy()))
 
     # save SSIM
     SSIM_trace = np.append(SSIM_trace, SSIM(post_meanvar_burnin.get_mean().cpu().numpy()))
@@ -205,7 +208,7 @@ print('\nEND OF SAMPLING PERIOD')
 
 print("NRMSE (from burn-in): ",NRMSE_trace[-1])
 print("NRMSE: ",NRMSE(post_meanvar.get_mean().cpu().numpy()))
-print("PSNR of noisy image: ", PSNR((y/torch.mean(y)*lambda_mean)).cpu().numpy())
+print("PSNR of noisy image: ", PSNR((y/torch.mean(y)*lambda_mean).cpu().numpy()))
 print("PSNR of posterior mean: ", PSNR(post_meanvar.get_mean().cpu().numpy()))
 
 RMYULA_results = {"theta": theta,
