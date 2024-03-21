@@ -33,7 +33,7 @@ def SAPG(y,X_init,gamma,lambda_prox, \
     
     # Stop criteria (relative change tolerance)
     
-    stopTol=1e-3
+    stopTol=1e-4
     
     # Image dimension
     nx,ny=[X_init.shape[0],X_init.shape[1]]
@@ -94,7 +94,7 @@ def SAPG(y,X_init,gamma,lambda_prox, \
     
         # Number of samples
         
-        m=3000
+        m=5000
         
         gTraceX_mcmc=torch.zeros(m)
         

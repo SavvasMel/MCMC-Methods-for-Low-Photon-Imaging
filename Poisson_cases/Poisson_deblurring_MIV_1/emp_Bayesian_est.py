@@ -74,7 +74,7 @@ size = [im.shape[0],im.shape[1]]
 type_blur = "uniform"
 K, KT, K_norm = blur_operators(kernel_len, size, type_blur, device)
 
-y=np.array(np.random.poisson(K(z_true)),np.float)
+y = torch.Tensor(np.random.poisson(K(z_true).cpu().numpy())).to(device)
 
 #%% Algorithm settings
 
@@ -113,7 +113,7 @@ d_scale= 10
 d_exp=0.8
 warmupSteps=1000
 burnIn=25
-total_iter=100
+total_iter=1500
                         
 theta_EB,last_theta,thetas,logPiTraceX,gXTrace,last_samp= SAPG(y,X_init,gamma,lambda_prox,th_init,min_th,max_th, d_scale,d_exp,
                                                                 gradF,gradG,logPi,g,
