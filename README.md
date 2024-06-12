@@ -1,3 +1,5 @@
+(Update 12/06/2024: an updated version of the current repository by using the <a href=https://deepinv.github.io/deepinv/index.html>deepinv library</a>  is coming out soon!
+
 # MCMC for Low Photon Imaging
 
 **Abstract:** In this work, we present a  new  and  highly  efficient  Markov  chain  Monte  Carlo  (MCMC)  methodology to perform Bayesian inference in low-photon imaging problems, with particular attention given to situations involving observation noise processes that deviate significantly from Gaussian noise, such as **binomial, geometric, and low-intensity Poisson noise**. These problems are challenging for many reasons.  From an inferential viewpoint, low-photon numbers lead to severe identifiability issues, poor stability, and high uncertainty about the solution.  Moreover, low-photon models often exhibit poor regularity  properties  that  make  efficient  Bayesian  computation  difficult,  e.g.,  hard  nonnegativity constraints, nonsmooth priors, and log-likelihood terms with exploding gradients.
